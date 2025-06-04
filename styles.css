@@ -1,0 +1,47 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #e8f5e9, #ffffff); /* Light green gradient */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #2c3e50; 
+    transition: background-color 0.3s, color 0.3s;
+}
+button {
+    padding: 12px 24px;
+    background: var(--button-bg);
+    color: gray;
+    border: none;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+button:hover {
+    background: var(--button-hover-bg);
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+button:focus {
+    outline: 2px solid #1abc9c; /* Green outline for focus */
+    outline-offset: 2px;
+    box-shadow: 0 0 8px rgba(26, 188, 156, 0.5); /* Subtle glow effect */
+}
+#timer {
+    font-size: 20px;
+    color: #e74c3c; /* Red for timer, to show urgency */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.timer {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e74c3c; /* Red for urgency */
+  margin-bottom: 20px;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>easy questions</title>
+    <style>
+        body{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background: linear-gradient(to bottom, #e8f5e9, #ffff);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #2c2c2c;
+            transition: background-color 0.3s color 0.3s;
+        }
+        #quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f8fff8;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+        }
+        .hidden{
+            display: none;
+        }
+        .option-label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .next-btn {
+            margin-top: 20px;
+            padding: 10px 24px;
+            border-radius: 20px;
+            border: none;
+            background: #238e38;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .next-btn:disabled {
+            background: #bdbdbd;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz-container"></div>
+    <script>
+        const questionsData = [
+            { question: "Who was the father of Prophet Yusuf?", options: ["Ibrahim", "Yaqub", "Ismail", "Musa"], answer: "Yaqub" },
+            { question: "What was the name of Yusuf's mother?", options: ["Hajar", "Sarah", "Ruqayyah", "Raheel"], answer: "Raheel" },
+            { question: "Who was the king during Yusuf's time in Egypt?", options: ["Fir'aun", "Hammurabi", "Nebuchadnezzar", "Cyrus"], answer: "Fir'aun" },
+            { question: "What did Yusuf interpret for the king?", options: ["A dream about cows", "A dream about stars", "A dream about a river", "A dream about a mountain"], answer: "A dream about cows" },
+            { question: "How many brothers did Yusuf have?", options: ["10", "11", "12", "13"], answer: "11" },
+            { question: "What did Yusuf's brothers do to him?", options: ["They loved him", "They sold him", "They protected him", "They ignored him"], answer: "They sold him" },
+            { question: "What was Yusuf's position in Egypt after interpreting the dream?", options: ["A farmer", "A soldier", "A minister", "A merchant"], answer: "A minister" },
+            { question: "Who was Yusuf's wife?", options: ["Zulaikha", "Asiya", "Maryam", "Fatimah"], answer: "Zulaikha" },
+            { question: "In which surah is the story of Yusuf?", options: ["Surah Maryam", "Surah Yusuf", "Surah Baqarah", "Surah Kahf"], answer: "Surah Yusuf" },
+            { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+            { question: "the revelation of the quran was in the month of?", options: ["rajab", "ramadan", "dhul-hijah", "shawwal"], answer: "ramadan" },
+            { question: "Salamu hiya hatta matia 'il-fajr is in surah?", options: ["Surah duha", "Surah Yusuf", "Surah Baqarah", "Surah falaq"], answer: "Surah duha" },
+            { question: "suarah duha has how many verses?", options: ["eight", "nine", "ten", "seven"], answer:"seven" },
+            { question: "As-shams in chapter 91 of al-quran means?", options: ["moon", "garden", "sun", "cow"], answer: "sun" },
+            { question: "yahsabu anna malahu akhladah comes?", options: ["Alladani jam'a malan wa'addadah", "allati tattali'u alal af'idah", "innaha'alayhim mu 'sadah", "waylul likuli humazatil lumazah"], answer: "Alladani jam'a malan wa'addadah" },
+            { question: "the compilation of Al-quran was done under the advice of?", options: ["abu-muttalib", "ali ibn abu talib", "umar bn khattab", "zyd bn thabit"], answer: "umar bn khattab" },
+            { question: "the revelation of qur'an to Muhammed(SAW)started with______ verses?", options: ["five", "seven", "four", "one"], answer: "five" },
+            { question: "verses three and ___________ are the same in suratul kafirun?", options: ["five", "Six", "two", "eight"], answer: "six" },
+            { question: "zabur was revealed to?", options: ["prophet dawud", "prophet yusuf", "prophet Hud", "prophet ibrahim"], answer: "prophet dawud" },
+            { question: "eating of pork is?", options: ["prohibited", "economical", "lawful", "allowed"], answer: "prohibited" },
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        const quizContainer = document.getElementById('quiz-container');
+
+        function showQuestion(idx) {
+            const q = questionsData[idx];
+            quizContainer.innerHTML = `
+                <h2>Question ${idx + 1} of ${questionsData.length}</h2>
+                <p>${q.question}</p>
+                <form id="quiz-form">
+                    ${q.options.map(option => `
+                        <label class="option-label">
+                            <input type="radio" name="option" value="${option}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                    <button type="submit" class="next-btn" disabled>Next</button>
+                </form>
+            `;
+
+            const form = document.getElementById('quiz-form');
+            const radios = form.elements['option'];
+            const nextBtn = form.querySelector('.next-btn');
+
+            // Enable button when an option is selected
+            form.addEventListener('change', () => {
+                nextBtn.disabled = false;
+            });
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const selected = form.elements['option'].value;
+                if (selected === q.answer) score++;
+                currentQuestion++;
+                if (currentQuestion < questionsData.length) {
+                    showQuestion(currentQuestion);
+                } else {
+                    showResult();
+                }
+            });
+        }
+
+        function showResult() {
+            quizContainer.innerHTML = `
+                <h2>Quiz Completed!</h2>
+                <p>Your score: ${score} / ${questionsData.length}</p>
+            `;
+        }
+
+        showQuestion(currentQuestion);
+    </script>
+</body>
+</html>

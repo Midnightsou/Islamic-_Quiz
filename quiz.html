@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 32px 24px;
+            background: #f8fff8;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+            text-align: center;
+        }
+        h1 {
+            color: #238e38;
+            margin-bottom: 32px;
+            font-size: 2rem;
+        }
+        .easy-button,
+        .medium-button,
+        .hard-button {
+            display: block;
+            width: 80%;
+            margin: 16px auto;
+            padding: 14px 0;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition:  color 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.05);
+            letter-spacing: 1px;
+        }
+        .easy-button {
+            background: #e8f5e9;
+            color: #238e38;
+            border: 2px solid #238e38;
+        }
+        .easy-button:hover {
+            background: #238e38;
+            color: #fff;
+            transform: translateY(-2px) scale(1.03);
+        }
+        .medium-button {
+            background: #fffde7;
+            color: #bfa100;
+            border: 2px solid #bfa100;
+        }
+        .medium-button:hover {
+            background: #bfa100;
+            color: #fff;
+            transform: translateY(-2px) scale(1.03);
+        }
+        .hard-button {
+            background: #ffebee;
+            color: #c62828;
+            border: 2px solid #c62828;
+        }
+        .hard-button:hover {
+            background: #c62828;
+            color: #fff;
+            transform: translateY(-2px) scale(1.03);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Difficulty</h1>
+        <a class="easy-button" href="easy.html">Easy</a>
+        <a class="medium-button" href="medium.html">Medium</a>
+        <a class="hard-button" href="hard.html">Hard</a>
+    </div>
+</body>
+</html>
+
