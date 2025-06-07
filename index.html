@@ -6,52 +6,99 @@
     <title>Islamic quiz web app</title>
 </head>
 <body>
-    <main id="home-screen">
-        <h1 id="welcome message">Assalamualaykum</h1>
-        <div id="auth-buttons">
-            <button id="signin-button" aria-label="Sign In to your account"><a href="sigin.html">sign-in</a></button>
-            <button id="signin-button" aria-label="Sign In to your account"><a href="create-account.html">create-account</a></button>
- 
-        </div>
-       
-    </main>
+    <div class="container">
+        <main id="home-screen">
+            <h1 id="welcome-message">Assalamualaykum</h1>
+            <div id="auth-buttons">
+                <a class="auth-link" href="sigin.html" aria-label="Sign In to your account">sign-in</a>
+                <a class="auth-link" href="create-account.html" aria-label="Create a new account">create-account</a>
+            </div>
+        </main>
+    </div>
     <style>
-        body{
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            background: linear-gradient(to bottom, #e8f5e9, #ffff);
+        *{
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Varela Round', sans-serif;
+            background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #2c2c2c;
-            transition: background-color 0.3s color 0.3s;
-        }
-        h2{
-            align-items: center;
-            font-weight: 500;
-            color: rgba(35, 142, 56, 0.459);
-        }
-        button{
-            padding: 12px 24px;
             align-items: center;
             justify-content: center;
-            background: var(--button-bg);
-            color: grey;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 16px;
+            padding: 2rem;
+            transition: all 0.5s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(0, 255, 200, 0.15), transparent 70%);
+            animation: pulse 6s infinite;
+            z-index: 0;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.4;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.6;
+            }
+        }
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            width: 100%;
+            padding: 3rem;
             border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 60px rgba(0, 255, 255, 0.3);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            background: linear-gradient(to right, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        .auth-link {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 12px;
+            margin: 0.5rem;
             cursor: pointer;
-            transition: background-color 0.4s transform 0.3s;
-            box-shadow: 0 4px 6px hwb(0 0% 100% / 0.97);
+            text-decoration: none;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+            color: white;
+            box-shadow: 0 0 15px rgba(255, 65, 108, 0.5);
+            transition: all 0.4s ease;
         }
-        button:hover{
-            background: var(--button-hover-bg);
-            transform: translateY(-3px); 
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        .auth-link:hover {
+            background-color: #004d40;
+            color: #e0f2f1;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
         }
-        button:focus{
+        .auth-link:focus{
             outline: 2px solid #1abc9c;
             outline-offset: 2px;
             box-shadow: 0 0 8px #1abc9c;

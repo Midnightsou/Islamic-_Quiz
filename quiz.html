@@ -1,79 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Islamic quiz</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .container {
-            max-width: 400px;
-            margin: 80px auto;
-            padding: 32px 24px;
-            background: #f8fff8;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
-            text-align: center;
-        }
-        h1 {
-            color: #238e38;
-            margin-bottom: 32px;
-            font-size: 2rem;
-        }
-        .easy-button,
-        .medium-button,
-        .hard-button {
-            display: block;
-            width: 80%;
-            margin: 16px auto;
-            padding: 14px 0;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition:  color 0.2s, transform 0.2s;
-            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.05);
-            letter-spacing: 1px;
-        }
-        .easy-button {
-            background: #e8f5e9;
-            color: #238e38;
-            border: 2px solid #238e38;
-        }
-        .easy-button:hover {
-            background: #238e38;
-            color: #fff;
-            transform: translateY(-2px) scale(1.03);
-        }
-        .medium-button {
-            background: #fffde7;
-            color: #bfa100;
-            border: 2px solid #bfa100;
-        }
-        .medium-button:hover {
-            background: #bfa100;
-            color: #fff;
-            transform: translateY(-2px) scale(1.03);
-        }
-        .hard-button {
-            background: #ffebee;
-            color: #c62828;
-            border: 2px solid #c62828;
-        }
-        .hard-button:hover {
-            background: #c62828;
-            color: #fff;
-            transform: translateY(-2px) scale(1.03);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Islamic Quiz - Difficulty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Varela+Round&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Varela Round', sans-serif;
+      background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s ease;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 255, 200, 0.1), transparent 70%);
+      animation: pulse 6s infinite;
+      z-index: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.4;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.6;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      width: 100%;
+      padding: 3rem 2rem;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 60px rgba(0, 255, 255, 0.2);
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      background: linear-gradient(to right, #00f2fe, #4facfe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .easy-button,
+    .medium-button,
+    .hard-button {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      margin: 1rem 0.7rem;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+    }
+
+    .easy-button {
+      background: #2ecc71;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(46, 204, 113, 0.6);
+    }
+
+    .easy-button:hover {
+      background: #27ae60;
+      box-shadow: 0 0 30px rgba(46, 204, 113, 0.9);
+      transform: scale(1.05);
+    }
+
+    .medium-button {
+      background: #f1c40f;
+      color: #000;
+      box-shadow: 0 0 15px rgba(241, 196, 15, 0.6);
+    }
+
+    .medium-button:hover {
+      background: #f39c12;
+      box-shadow: 0 0 30px rgba(241, 196, 15, 0.9);
+      transform: scale(1.05);
+    }
+
+    .hard-button {
+      background: #e74c3c;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(231, 76, 60, 0.6);
+    }
+
+    .hard-button:hover {
+      background: #c0392b;
+      box-shadow: 0 0 30px rgba(231, 76, 60, 0.9);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 2rem;
+      }
+
+      .easy-button,
+      .medium-button,
+      .hard-button {
+        padding: 0.8rem 1.6rem;
+        font-size: 1rem;
+        margin: 0.7rem 0.3rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Select Difficulty</h1>
-        <a class="easy-button" href="easy.html">Easy</a>
-        <a class="medium-button" href="medium.html">Medium</a>
-        <a class="hard-button" href="hard.html">Hard</a>
-    </div>
+  <div class="container">
+    <h2>Select Difficulty</h2>
+    <a class="easy-button" href="easy.html" aria-label="Start Easy Quiz">Easy</a>
+    <a class="medium-button" href="medium.html" aria-label="Start Medium Quiz">Medium</a>
+    <a class="hard-button" href="hard.html" aria-label="Start Hard Quiz">Hard</a>
+  </div>
 </body>
 </html>
-

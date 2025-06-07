@@ -1,0 +1,282 @@
+const questionsData =  easy[
+            { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+                        { question: "the revelation of the quran was in the month of?", options: ["rajab", "ramadan", "dhul-hijah", "shawwal"], answer: "ramadan" }
+                                    { question: "Salamu hiya hatta matia 'il-fajr is in surah?", options: ["Surah duha", "Surah Yusuf", "Surah Baqarah", "Surah falaq"], answer: "Surah duha" }
+                                                { question: "suarah duha has how many verses?", options: ["eight", "nine", "ten", "seven"], answer:"seven" }
+                                                { question: "As-shams in chapter 91 of al-quran means?", options: ["moon", "garden", "sun", "cow"], answer: "sun" }
+                                                { question: "yahsabu anna malahu akhladah comes?", options: ["Alladani jam'a malan wa'addadah", "allati tattali'u alal af'idah", "innaha'alayhim mu 'sadah", "waylul likuli humazatil lumazah"], answer: "Alladani jam'a malan wa'addadah" }
+                                                { question: "the compilation of Al-quran was done under the advice of?", options: ["abu-muttalib", "ali ibn abu talib", "umar bn khattab", "zyd bn thabit"], answer: "umar bn khattab" }
+                                                { question: "the revelation of qur'an to Muhammed(SAW)started with______ verses?", options: ["five", "seven", "four", "one"], answer: "five" }
+                                             { question: "verses three and ___________ are the same in suratul kafirun?", options: ["five", "Six", "two", "eight"], answer: "six" }
+                                            { question: "zabur was revealed to?", options: ["prophet dawud", "prophet yusuf", "prophet Hud", "prophet ibrahim"], answer: "prophet dawud" }
+                                            { question: "eating of pork is?", options: ["prohibited", "economical", "lawful", "allowed"], answer: "prohibited" }
+]
+medium [
+    { question: "Al-Arba unan-Nawawi is a book of________", options: ["fiqh", "sirah", "hadith", "tahdhib"], answer: "hadith" },
+    { question: "hadith five of an-nawawi's collection teaches", options: ["brotherhood", "orderliness", "prohibition of innovation", "pillars of islam"], answer: "prohibition of innovation" },
+    { question: "every man shall have that which he intends is a saying of hadith_____an-nawawi collection", options: ["one", "two", "three", "a'ishah"], answer: "hafsah" },
+    { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+    { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+    { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+    { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+    { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+    { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+    { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+    { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+    { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+    { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+    { question: "The manuscript of the complied copy of the quran was under the custody of", options: ["zaynab", "fatima", "hafsah", "a'ishah"], answer: "hafsah" },
+    
+
+]
+styles{
+    /* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #e8f5e9);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Container */
+.container {
+  max-width: 600px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  color: #00695c;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+button, .btn {
+  background-color: #00796b;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin: 10px 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover, .btn:hover {
+  background-color: #004d40;
+}
+
+/* Input fields */
+input[type="username"],
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .container {
+    padding: 20px;
+  }
+}
+
+/* Dark mode toggle */
+.dark-mode {
+  background: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode .container {
+  background: rgba(30, 30, 30, 0.9);
+}
+
+.dark-mode button, .dark-mode .btn {
+  background-color: #26a69a;
+}
+
+.dark-mode button:hover, .dark-mode .btn:hover {
+  background-color: #1b9f90;
+}
+
+}
+
+
+
+
+
+/* ===== CRAZY MAD UI 🔥 ===== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Varela+Round&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Varela Round', sans-serif;
+  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: all 0.5s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Background animation */
+body::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(0, 255, 200, 0.15), transparent 70%);
+  animation: pulse 6s infinite;
+  z-index: 0;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+/* Container */
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  width: 100%;
+  padding: 3rem;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 60px rgba(0, 255, 255, 0.3);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Title */
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  background: linear-gradient(to right, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Paragraph */
+p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
+.btn, button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  margin: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 65, 108, 0.5);
+  transition: all 0.4s ease;
+}
+
+.btn:hover, button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
+}
+
+/* Inputs */
+input[type="text"], input[type="password"], input[type="email"] {
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  backdrop-filter: blur(10px);
+}
+
+input::placeholder {
+  color: #eee;
+}
+
+/* Dark mode switch */
+#darkToggle {
+  background: linear-gradient(to right, #43e97b, #38f9d7);
+  color: black;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(67, 233, 123, 0.4);
+}
+
+#darkToggle:hover {
+  transform: rotate(6deg) scale(1.03);
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .container {
+    padding: 2rem;
+  }
+}
