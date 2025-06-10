@@ -164,6 +164,11 @@
                 displayError("Username already exists. Please choose a different one.");
                 return;
             }
+            users[username] = {
+  scores: []
+};
+localStorage.setItem("users", JSON.stringify(users));
+localStorage.setItem("currentUser", username);
 
             users[username] = {}; // Add the new user
             localStorage.setItem("users", JSON.stringify(users));

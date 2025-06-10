@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile page</title>
+    <style>
+        body {
+    font-family: 'Varela Round', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+#profile {
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 2.5rem 2rem 2rem 2rem;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.8s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95);}
+    to { opacity: 1; transform: scale(1);}
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #b2ffea;
+    letter-spacing: 1px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background: rgba(255,255,255,0.10);
+    margin: 0.5rem 0;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.05);
+    transition: background 0.2s;
+}
+
+li:hover {
+    background: rgba(0,255,200,0.13);
+}
+
+@media (max-width: 500px) {
+    #profile {
+        padding: 1.2rem 0.5rem;
+        max-width: 98vw;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <div id="profile"></div>
+    <script>
+    const users = JSON.parse(localStorage.getItem("users")) || {};
+    const currentUser = localStorage.getItem("currentUser");
+    const profileDiv = document.getElementById("profile");
+    if (users[currentUser]) {
+      profileDiv.innerHTML = `
+        <h2>${currentUser}'s Profile</h2>
+        <h3>Quiz History:</h3>
+        <ul>
+          ${users[currentUser].scores.map(s => `<li>${s.quiz} - ${s.score} (${s.date})</li>`).join('')}
+        </ul>
+      `;
+    } else {
+      profileDiv.textContent = "No profile found.";
+    }
+    </script>
+</body>
+</html>

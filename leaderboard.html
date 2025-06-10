@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: 'Varela Round', sans-serif;
+            background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            transition: all 0.5s ease;
+        }
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+        }
+        table {
+            width: 90%;
+            max-width: 600px;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: rgba(255, 255, 255, 0.12);
+            font-size: 1.1rem;
+            text-transform: capitalize;
+        }
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        tr:hover {
+            background-color: rgba(255,255,255,0.08);
+        }
+        .empty-msg {
+            text-align: center;
+            color: #ffb300;
+            font-size: 1.1rem;
+            padding: 20px 0;
+        }
+        button {
+            margin-top: 24px;
+            padding: 12px 28px;
+            background: linear-gradient(90deg, #203a43, #2c5364);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #2c5364, #203a43);
+        }
+    </style>
+</head>
+<body>
+    <h1>🏆 Leaderboard 🏆</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard-body"></tbody>
+    </table>
+    <div id="empty-leaderboard" class="empty-msg" style="display:none;">No scores yet. Be the first to play!</div>
+    <button onclick="location.href='quiz.html'" aria-label="Go back to quiz">Go back to quiz</button>
+    <script>
+        const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+        const tbody = document.getElementById('leaderboard-body');
+        const emptyMsg = document.getElementById('empty-leaderboard');
+
+        // Sort leaderboard by score descending
+        leaderboard.sort((a, b) => b.score - a.score);
+
+        if (leaderboard.length === 0) {
+            emptyMsg.style.display = "block";
+        } else {
+            emptyMsg.style.display = "none";
+            leaderboard.forEach((entry, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${entry.username}</td>
+                    <td>${entry.score}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>
